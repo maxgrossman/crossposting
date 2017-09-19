@@ -1,0 +1,8 @@
+{
+  "name": "crossposting",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/maxgrossman/crossposting.git",
+  "author": "maxgrossman <m.grossman1813@gmail.com>",
+  "license": "MIT"
+}
