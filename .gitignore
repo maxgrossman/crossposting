@@ -1,4 +1,5 @@
 client_secret*
+config.js
 # Logs
 logs
 *.log

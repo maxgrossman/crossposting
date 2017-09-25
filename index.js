@@ -1,13 +1,18 @@
 var gUser = process.argv[2]
 var auth = require('./utils/auth').auth;
 var getEntries = require('./utils/crossposting').getEntries;
-var spreadsheetId = require('./spreadsheet')[gUser]
+var config = require('./config');
+Promise = require('bluebird');
 
-// use command line argument to decide which google drive acct to access
+// if geoweek is the command, find which of the 
 if (gUser === 'geoweek') {
-  auth('geoweek')
-  .then(auth => {
-    getEntries(auth, spreadsheetId, 'main!A:XX')
-    .then(rows => console.log(rows))
+  Promise.map(['geoweek', 'mm'], (gUser) => {
+    return auth(gUser)
+    .then(auth => {
+      const spreadsheetId = config[spreadsheet][gUser];
+      return getEntries(auth, shreadsheetId, 'main!A:XX')
+    })
   })
+  .then()
+  .catch()
 }
